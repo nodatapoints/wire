@@ -53,4 +53,4 @@ After exiting, the state before running will be resumed.
 
 To exit the game, press <kbd>Q</kbd>
 
-![Generating a Sierpinski Triangle](https://imgur.com/7XgMpJt)
+![Generating a Sierpinski Triangle](https://i.imgur.com/7XgMpJt.png)
