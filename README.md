@@ -1,8 +1,6 @@
 # Cellular Wire Automaton
 ## Installation
-Get [
-
-To exit the game, press <kbd>Q</kbd>SFML](https://www.sfml-dev.org/).
+Get [SFML](https://www.sfml-dev.org/).
 ```bash
 $ sudo apt install libsfml-dev
 ```
