@@ -52,3 +52,5 @@ To exit the Run Mode, press <kbd>Space</kbd> or <kbd>Escape</kbd> again. Otherwi
 After exiting, the state before running will be resumed.
 
 To exit the game, press <kbd>Q</kbd>
+
+![Generating a Sierpinski Triangle](https://imgur.com/7XgMpJt)
