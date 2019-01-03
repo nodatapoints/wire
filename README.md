@@ -29,7 +29,7 @@ __In the next generation, a cell will change to state__
 1. __... Empty if it is Empty__
 2. __... Wire if it is Blocking__
 3. __... Blocking if it is Active__
-4. __... Active if it is Wire and it has an uneven number of active neighbors with a shared edge.__
+4. __... Active if it is Wire and it has an odd number of active neighbors with a shared edge.__
 
 ### The Controls
 
