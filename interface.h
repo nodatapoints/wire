@@ -29,6 +29,7 @@ public:
 private:
     void setCursor(const sf::Vector2i &cursor);
     void setCursor(const sf::Vector2f &cursor);
+    sf::Vector2i mouseOnGrid();
 };
 
 #endif

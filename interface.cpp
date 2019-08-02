@@ -92,8 +92,8 @@ void Interface::handleKeyReleased(const sf::Event &event) {
     }
 }
 
-sf::Vector2i mouseOnGrid() {
-    return (sf::Mouse::getPosition()/CELL_SIZE);
+sf::Vector2i Interface::mouseOnGrid() {
+    return (sf::Mouse::getPosition(window)/CELL_SIZE);
 }
 
 sf::Vector2f upperLeftCorner(const sf::Vector2i &a, const sf::Vector2i &b) {
@@ -127,7 +127,7 @@ void Interface::handleKeyPressed(const sf::Event &event) {
     }
 
     if (selecting && (event.key.code == sf::Keyboard::C || event.key.code == sf::Keyboard::X)) {
-        auto pos = sf::Mouse::getPosition() / CELL_SIZE;
+        auto pos = sf::Mouse::getPosition(window) / CELL_SIZE;
         game.copy(pos.x, pos.y, startSelection.x, startSelection.y, clipboard);
         if (event.key.code == sf::Keyboard::X)
             game.setRect(pos.x, pos.y, startSelection.x, startSelection.y, Cell::EMPTY);
@@ -137,14 +137,14 @@ void Interface::handleKeyPressed(const sf::Event &event) {
     }
 
     if (!selecting && (event.key.code == sf::Keyboard::V)) {
-        auto pos = sf::Mouse::getPosition() / CELL_SIZE;
+        auto pos = sf::Mouse::getPosition(window) / CELL_SIZE;
         game.paste(pos.x, pos.y, clipboard);
     }
 }
 
 void Interface::handleMouseReleased(const sf::Event &event) {
     if (selecting && !simulating) {
-        auto pos = sf::Mouse::getPosition() / CELL_SIZE;
+        auto pos = sf::Mouse::getPosition(window) / CELL_SIZE;
         game.setRect(pos.x, pos.y, startSelection.x, startSelection.y, 
             (event.mouseButton.button == sf::Mouse::Left) ? Cell::WIRE : Cell::EMPTY);
          
@@ -158,7 +158,7 @@ void Interface::handleMouse() {
     if (simulating || selecting)
         return;
 
-    auto pos = sf::Mouse::getPosition() / CELL_SIZE;
+    auto pos = sf::Mouse::getPosition(window) / CELL_SIZE;
     cursor.setPosition(pos.x*CELL_SIZE, pos.y*CELL_SIZE);
 
     Cell cell;
