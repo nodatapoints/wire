@@ -1,4 +1,4 @@
-.PHONY: run clean
+.PHONY: run clean wireworld
 
 APP=wire
 GPP_FLAGS=-std=c++11
@@ -19,5 +19,8 @@ interface.o: interface.cpp interface.h
 run: ${APP}
 	./${APP}
 
-clear:
+wireworld: GPP_FLAGS+= -DWIREWORLD
+wireworld: ${APP}
+
+clean:
 	rm -rvf ${APP} *.o

@@ -82,7 +82,12 @@ int Game::countNeighbours(const int &x, const int &y, Cell type) const {
     if (this->getXY(x+1, y) == type) ++count;
     if (this->getXY(x, y-1) == type) ++count;
     if (this->getXY(x-1, y) == type) ++count;
-
+#if defined(EXTEND_NEIGHBOURHOOD) || defined(WIREWORLD)
+    if (this->getXY(x-1, y-1) == type) ++count;
+    if (this->getXY(x-1, y+1) == type) ++count;
+    if (this->getXY(x+1, y-1) == type) ++count;
+    if (this->getXY(x+1, y+1) == type) ++count;
+#endif
     return count;
 }
 
@@ -97,9 +102,13 @@ Cell Game::next(const int &x, const int &y) const {
             return Cell::WIRE;
 
         case Cell::WIRE:
+#ifdef WIREWORLD
+            return (active == 1 || active == 2) ? Cell::ACTIVE : Cell::WIRE;
+#else
             return (active % 2 == 0) ? Cell::WIRE : Cell::ACTIVE;
-
+#endif
         case Cell::EMPTY:
+        default:
             return Cell::EMPTY;
     }
 }
